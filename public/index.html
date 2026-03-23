@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ma To Do List</title>
+    <meta
+      name="description"
+      content="Une petite application de to do list prête à être déployée sur Vercel."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="card" aria-labelledby="app-title">
+        <div class="hero">
+          <div>
+            <p class="eyebrow">Prêt pour Vercel</p>
+            <h1 id="app-title">To Do List</h1>
+            <p class="subtitle">
+              Ajoute, coche, filtre et sauvegarde automatiquement tes tâches.
+            </p>
+          </div>
+          <div class="stats" aria-live="polite">
+            <div>
+              <span id="tasks-left">0</span>
+              <small>à faire</small>
+            </div>
+            <div>
+              <span id="tasks-done">0</span>
+              <small>terminées</small>
+            </div>
+          </div>
+        </div>
+
+        <form id="todo-form" class="todo-form">
+          <label class="sr-only" for="todo-input">Nouvelle tâche</label>
+          <input
+            id="todo-input"
+            name="todo"
+            type="text"
+            maxlength="120"
+            placeholder="Exemple : Déployer mon appli sur Vercel"
+            autocomplete="off"
+            required
+          />
+          <button type="submit">Ajouter</button>
+        </form>
+
+        <div class="toolbar">
+          <div class="filters" role="tablist" aria-label="Filtrer les tâches">
+            <button class="filter active" data-filter="all" type="button">Toutes</button>
+            <button class="filter" data-filter="active" type="button">Actives</button>
+            <button class="filter" data-filter="completed" type="button">Terminées</button>
+          </div>
+          <button id="clear-completed" class="clear-btn" type="button">
+            Supprimer les terminées
+          </button>
+        </div>
+
+        <ul id="todo-list" class="todo-list" aria-live="polite"></ul>
+
+        <template id="empty-state-template">
+          <li class="empty-state">
+            <p>Aucune tâche pour le moment. Commence par en ajouter une ✨</p>
+          </li>
+        </template>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
